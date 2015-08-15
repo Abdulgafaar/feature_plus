@@ -1,6 +1,6 @@
 FeaturePlus
 ============
-Simple application CRUD application to add new features to a seemingly existent app.
+Simple CRUD application to add new features to a seemingly existent app.
 
 Tech Stack
 ----------
