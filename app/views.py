@@ -1,12 +1,13 @@
-from django import form
-from django.shortcuts import render
+from __future__ import unicode_literals
+
+from django import forms
 from .models import Feature
 
 
-class FeatureForm(form.ModelForms):
-  """
-  Form for creating new Feature entry
-  """
-  class Meta:
-    model = Feature
-  
+class FeatureForm(forms.ModelForm):
+    """
+    Form for creating new Feature entry
+    """
+
+    class Meta:
+        model = Feature
