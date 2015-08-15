@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FeaturePlus.wsgi.application'
+WSGI_APPLICATION = 'feature_plus.wsgi.application'
 
 
 # Database
