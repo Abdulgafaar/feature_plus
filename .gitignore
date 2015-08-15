@@ -1,3 +1,5 @@
 .pyc
 .idea/*
-feature_app/*.pyc
+app/*.pyc
+app/migrations/*.pyc
+feature_plus/*.pyc
