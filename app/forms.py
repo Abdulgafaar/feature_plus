@@ -1,5 +1,8 @@
 from __future__ import unicode_literals
 
+from pytz import UTC
+from datetime import datetime
+
 from django import forms
 from .models import Feature
 from .services import update_other_priorities
@@ -15,6 +18,10 @@ class FeatureForm(forms.ModelForm):
     class Meta:
         model = Feature
         fields = '__all__'
+
+    def clean_target_date(self):
+        target_date = self.cleaned_data['target_date']
+        return datetime.strftime(target_date, '%Y-%m-%dT%H:%MZ')
 
     def clean(self):
         update_other_priorities(self.instance)
