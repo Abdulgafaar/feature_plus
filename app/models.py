@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+PRIORITY_ONE = 1
+
 CLIENTS = (
     ('Client A', 'Client A'),
     ('Client B', 'Client B'),
