@@ -15,7 +15,7 @@ class FeatureServicesTestCase(TestCase):
         self.feature[2].priority = 92
         self.feature[0].save(), self.feature[1].save(), self.feature[2].save()
 
-    def test_we_can_update_other_priorities_when_an_new_feature_with_priority_one_is_created(self):
+    def test_we_can_update_other_priorities_when_a_new_feature_with_priority_one_is_created(self):
         features_priorities = Feature.objects.all().values_list('priority', flat=True).order_by('priority')
         self.assertListEqual(list(features_priorities), [1, 65, 92])
 
