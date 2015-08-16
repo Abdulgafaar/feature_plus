@@ -1,5 +1,8 @@
 from __future__ import unicode_literals
 
+from django.http import HttpResponse
+from django.template import RequestContext, loader
+
 
 def features(request):
     """
@@ -7,4 +10,6 @@ def features(request):
     :param request:
     :return:
     """
-    pass
+    template = loader.get_template('features.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
