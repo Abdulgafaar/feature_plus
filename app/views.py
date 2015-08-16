@@ -1,15 +1,13 @@
 from __future__ import unicode_literals
 
-from django.views.decorators.csrf import csrf_protect
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
-from django.template import RequestContext, loader
+from django.template import loader, RequestContext
 
 from .forms import FeatureForm
-from .models import Feature
 
 
-@csrf_protect
 def features_add(request):
     """
     Add/Edit Feature
@@ -19,11 +17,12 @@ def features_add(request):
     if request.method == 'POST':
         feature_form = FeatureForm(request.POST)
         if feature_form.is_valid():
-            HttpResponseRedirect('/list')
+            feature_form.save()
+            return HttpResponseRedirect(reverse('features_list'))
     else:
         feature_form = FeatureForm()
 
-    return render_to_response('features.html', {'feature_form': feature_form})
+    return render_to_response('features.html', {'feature_form': feature_form}, RequestContext(request))
 
 
 def features_list(request):
