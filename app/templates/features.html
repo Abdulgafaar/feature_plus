@@ -27,16 +27,19 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <div class="row">
-    <form class="form-horizontal" action="/features/add" method="POST">
+    <form class="form-horizontal" action="{% url 'features_add' %}" method="POST">
         {% csrf_token %}
         {{ feature_form.non_field_errors }}
-        <div class="form-group">
+        <div class="form-group"><!--has-error has-feedback-->
             <label for="title" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" id="title" name="title" placeholder="Feature Title">
+                <!--<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>-->
+                <!--<span id="titleError" class="sr-only">(error)</span>-->
             </div>
         </div>
         <div class="form-group">
+            {{ feature_form.description.errors }}
             <label for="description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-3">
                 <textarea class="form-control" id="description" name="description"
@@ -44,6 +47,7 @@
             </div>
         </div>
         <div class="form-group">
+            {{ feature_form.clients.errors }}
             <label for="clients" class="col-sm-2 control-label">Clients</label>
             <div class="col-sm-3">
                 <select class="form-control" id="clients" name="clients">
@@ -54,24 +58,28 @@
             </div>
         </div>
         <div class="form-group">
+            {{ feature_form.priority.errors }}
             <label for="priority" class="col-sm-2 control-label">Priority</label>
             <div class="col-sm-1">
                 <input type="number" class="form-control" id="priority" name="priority">
             </div>
         </div>
         <div class="form-group">
+            {{ feature_form.target_date.errors }}
             <label for="target_date" class="col-sm-2 control-label">Target Date</label>
             <div class="col-sm-2">
                 <input type="datetime" class="form-control" id="target_date" name="target_date">
             </div>
         </div>
         <div class="form-group">
+            {{ feature_form.ticket_url.errors }}
             <label for="ticket_url" class="col-sm-2 control-label">Ticket URL</label>
             <div class="col-sm-3">
                 <input type="url" class="form-control" id="ticket_url" name="ticket_url">
             </div>
         </div>
         <div class="form-group">
+            {{ feature_form.product_area.errors }}
             <label for="product_area" class="col-sm-2 control-label">Product Area</label>
             <div class="col-sm-3">
                 <select class="form-control" id="product_area" name="product_area">
