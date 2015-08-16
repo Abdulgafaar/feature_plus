@@ -22,7 +22,7 @@ class Feature(models.Model):
     """
     Represents a Feature object.
     """
-    title = models.CharField(max_length=100, help_text='Title')
+    title = models.CharField(max_length=100, help_text='Title', unique=True)
     description = models.TextField(help_text='Description')
     clients = models.CharField(max_length=35, choices=CLIENTS, help_text='Client')
     priority = models.IntegerField(help_text='Client Priority')
