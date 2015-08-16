@@ -1,13 +1,10 @@
 from __future__ import unicode_literals
 
-from django import forms
-from .models import Feature
 
-
-class FeatureForm(forms.ModelForm):
+def features(request):
     """
-    Form for creating new Feature entry
+    Handles CRUD operations for the Bootstrap template
+    :param request:
+    :return:
     """
-
-    class Meta:
-        model = Feature
+    pass
