@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from __future__ import unicode_literals, absolute_import
 
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect

@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from __future__ import unicode_literals, absolute_import
 
 """
 This file contains Business Logic for the `app` Django Application

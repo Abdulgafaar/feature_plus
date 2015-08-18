@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from __future__ import unicode_literals, absolute_import
 
 from unittest2 import TestCase
 from ..factories import FeatureFactory
