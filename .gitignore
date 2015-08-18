@@ -1,4 +1,4 @@
-.pyc
+*.pyc
 .idea/*
 app/*.pyc
 app/migrations/*.pyc
