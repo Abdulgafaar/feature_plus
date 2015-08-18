@@ -22,7 +22,10 @@ def features_add(request):
     else:
         feature_form = FeatureForm()
 
-    return render_to_response('features.html', {'feature_form': feature_form}, RequestContext(request))
+    return render_to_response('features.html',
+                              {'feature_form': feature_form},
+                              RequestContext(request)
+                              )
 
 
 def features_list(request):

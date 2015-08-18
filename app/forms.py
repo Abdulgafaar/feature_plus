@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 
-from pytz import UTC
 from datetime import datetime
 
 from django import forms
