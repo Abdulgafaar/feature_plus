@@ -5,6 +5,7 @@ from .base import *
 DEBUG = True
 INSTALLED_APPS += (
     'lettuce.django',
+    'debug_toolbar',
 )
 
 LETTUCE_APPS = (
