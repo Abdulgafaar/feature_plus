@@ -6,6 +6,7 @@ DEBUG = True
 INSTALLED_APPS += (
     'lettuce.django',
     'debug_toolbar',
+    'django_coverage',
 )
 
 LETTUCE_APPS = (
