@@ -33,6 +33,7 @@ class Feature(models.Model):
     class Meta:
         verbose_name = 'Feature'
         verbose_name_plural = 'Features'
+        unique_together = ('title', 'clients', 'priority')
 
     def __unicode__(self):
         return self.title
