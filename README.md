@@ -15,10 +15,11 @@ The following core Python packages/libraries were used:
 Setup
 -----
 The project can be set up by:
+* Creating a new virtualenv and clo
 * Installing requirements:
-..*  ```sudo pip install -r requirements/base.txt```
-* Exporting environment variables: 
-..* ```export DATABASE_URL=postgres://testuser:pAssw0rd@localhost:5432/db_features```
+..*  ```sudo pip install -r requirements/local.txt```
+* Exporting environment variables (the environment variables file will be emailed to you):
+..* ```source .env```
 * Setting up the Database (from the terminal, type): 
 ..* ```psql -d postgres < db_init.sql```
 * Setting up the app (from the terminal type):

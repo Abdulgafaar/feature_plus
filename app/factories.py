@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from __future__ import unicode_literals, absolute_import
 
 from datetime import datetime
 from pytz import UTC
@@ -25,7 +25,7 @@ class FeatureFactory(DjangoModelFactory):
     class Meta:
         model = Feature
 
-    title = FuzzyText(length=100)
+    title = FuzzyText(length=50)
     description = FuzzyText(length=255)
     clients = FuzzyChoice(['Client A', 'Client B', 'Client C'])
     priority = FuzzyInteger(1, 100, 1)
