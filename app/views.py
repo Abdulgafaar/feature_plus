@@ -6,43 +6,57 @@ from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
 
 from .forms import FeatureForm
+from .models import Feature
+from .services import update_other_priorities
 
 
-def features_add(request):
+def add_edit_feature(request, id=None):
     """
     Add/Edit Feature
     :param request:
     :return:
     """
+    feature = None
     if request.method == 'POST':
-        feature_form = FeatureForm(request.POST)
+        feature = Feature.objects.filter(title=request.POST['title']).first()
+        feature_form = FeatureForm(request.POST, instance=feature)
         if feature_form.is_valid():
-            feature_form.save()
-            return HttpResponseRedirect(reverse('features_list'))
+            update_other_priorities(feature, **feature_form.cleaned_data)
+            return HttpResponseRedirect(reverse('features:list_features'))
     else:
-        feature_form = FeatureForm()
+        if id:
+            feature = Feature.objects.filter(id=int(id)).first()
 
-    return render_to_response('features.html',
+        feature_form = FeatureForm(instance=feature)
+
+    return render_to_response('add_edit_features.html',
                               {'feature_form': feature_form},
                               RequestContext(request)
                               )
 
 
-def features_list(request):
+def list_features(request):
     """
     Return List of available features
     :param request:
     :return:
     """
-    template = loader.get_template('features.html')
-    return HttpResponse(template.render({}))
+    features = Feature.objects.all()
+    template = loader.get_template('list_features.html')
+    context = RequestContext(request, {'list_of_features': features})
+    return HttpResponse(template.render(context))
 
 
-def features_delete(request):
+def delete_feature(request, id):
     """
-    Return List of available features
+    Deletes a feature from the DB
     :param request:
+    :param id:
     :return:
     """
+    try:
+        Feature.objects.get(id=int(id)).delete()
+    except Feature.DoesNotExist:
+        return render_to_response('404.html', {'not_found': "Feature not found."})
 
-    return HttpResponse({})
+    return HttpResponseRedirect(reverse('features:list_features'))
