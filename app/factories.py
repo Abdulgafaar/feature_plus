@@ -25,7 +25,7 @@ class FeatureFactory(DjangoModelFactory):
     class Meta:
         model = Feature
 
-    title = FuzzyText(length=100)
+    title = FuzzyText(length=50)
     description = FuzzyText(length=255)
     clients = FuzzyChoice(['Client A', 'Client B', 'Client C'])
     priority = FuzzyInteger(1, 100, 1)
