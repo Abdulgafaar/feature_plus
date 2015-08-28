@@ -5,7 +5,7 @@ from ..factories import FeatureFactory
 from ..models import Feature
 
 
-class FeatureTestCase(TestCase):
+class FeatureModelTestCase(TestCase):
     """
     Test Feature model
     """
