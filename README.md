@@ -38,8 +38,7 @@ Type the address in a browser **http://localhost:8000/features/** (then replace 
 if you used a custom port)
 * Adding a Feature: Use the form to add new features
 * Editing a Feature: Click on the feature name to edit the feature
-* Deleting a Feature: Access http://localhost:8000/delete/feature_id/ (Todo: add trash icon with AJAX
-request to delete feature)
+* Deleting a Feature: Click on the Delete link beside each feature
 
 Testing
 -------

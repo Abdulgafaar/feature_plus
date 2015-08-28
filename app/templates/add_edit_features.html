@@ -64,7 +64,7 @@
 
             <div class="col-sm-5">
                 <input type="url" class="form-control" id="ticket_url" name="ticket_url"
-                       value={{ feature_form.ticket_url.value }} placeholder="" />
+                       value={{ feature_form.ticket_url.value| default_if_none:'http://' }} placeholder="" />
             </div>
         </div>
         <div class="form-group">
