@@ -10,38 +10,36 @@ please see [requirements](https://github.com/inspaya/feature_plus/tree/develop/r
 Setup
 -----
 The project can be set up by:
-
-* Installing [PostgreSQL](http://www.postgresql.org/download/linux/ubuntu/)
-..* ```$ # Ubuntu/Debian Linux
-..* ```$ apt-get install postgresql-9.3 postgresql-server-dev-9.3 libpq-dev```
-..* ```$ # Mac
-..* ```$ brew install postgresql```
+* Installing [PostgreSQL](http://www.postgresql.org/download/linux/ubuntu/) 
+  * ```$ apt-get install postgresql-9.3 postgresql-server-dev-9.3 libpq-dev # On Ubuntu/Debian Linux```
+  * ```$ brew install postgresql # On Mac```
 * Installing [pip](http://pip.readthedocs.org/en/latest/installing.html)
 * Creating a new [virtualenv](http://virtualenv.readthedocs.org/en/latest/installation.html)
 with **pip** and cloning this project into that environment
-..* ```$ virtualenv feature_plus```
-..* ```$ cd feature_plus```
-..* ```$ source bin/activate```
-..* ```$ git clone https://github.com/inspaya/feature_plus.git```
+  * ```$ virtualenv feature_plus```
+  * ```$ cd feature_plus```
+  * ```$ source bin/activate```
+  * ```$ git clone https://github.com/inspaya/feature_plus.git```
 * Installing requirements
-..* ```$ cd feature_plus```
-..* ```$ pip install -r requirements/local.txt```
+  * ```$ cd feature_plus```
+  * ```$ [sudo] pip install -r requirements/local.txt```
 * Exporting environment variables (the environment variables file will be emailed to you)
-..* ```$ source .env```
-* Setting up the Database (from the terminal, type) 
-..* ```$ psql -d postgres < db_init.sql```
-* Setting up the app (from the terminal type) 
-..* ```$ ./manage.py migrate```
-
+  * ```$ source .env```
+* Setting up the Database via the postgres user (from the terminal, type)
+  * ```$ psql -d postgres < db_init.sql```
+* Setting up the app (i.e. creating tables) 
+  * ```$ ./manage.py migrate```
+* Launching the Django development server
+  * ```$ ./manage.py runserver [port]``` # optionally specify a port, default is 8000
+* Launch the app
+  * Type the address in a browser http://localhost:8000/features/ # replace 8000 with the port you specified
 
 Testing
 -------
 You can execute the tests for this project by running 
-
-..* ```$ ./manage.py test```
+  * ```$ ./manage.py test```
 
 Coverage
 --------
 Code coverage is available by running
-
-..* ```$ ./manage test_coverage```
+  * ```$ ./manage test_coverage```
