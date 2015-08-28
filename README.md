@@ -5,14 +5,14 @@ Simple CRUD application to add new features to an existing app.
 Tech Stack
 ----------
 This project was built with the Django framework, for a full list of libraries/packages,
-please see [requirements](https://github.com/inspaya/feature_plus/tree/develop/requirements)
+please see [requirements](https://github.com/inspaya/feature_plus/tree/develop/requirements) files for details.
 
 Setup
 -----
 The project can be set up by:
 * Installing [PostgreSQL](http://www.postgresql.org/download/linux/ubuntu/) 
-  * ```$ apt-get install postgresql-9.3 postgresql-server-dev-9.3 libpq-dev # On Ubuntu/Debian Linux```
-  * ```$ brew install postgresql # On Mac```
+  * ```$ [sudo] brew install postgresql # Mac OS```
+  * ```$ [sudo] apt-get install postgresql-9.3 postgresql-server-dev-9.3 libpq-dev # Ubuntu/Debian```
 * Installing [pip](http://pip.readthedocs.org/en/latest/installing.html)
 * Creating a new [virtualenv](http://virtualenv.readthedocs.org/en/latest/installation.html)
 with **pip** and cloning this project into that environment
@@ -30,9 +30,16 @@ with **pip** and cloning this project into that environment
 * Setting up the app (i.e. creating tables) 
   * ```$ ./manage.py migrate```
 * Launching the Django development server
-  * ```$ ./manage.py runserver [port]``` # optionally specify a port, default is 8000
-* Launch the app
-  * Type the address in a browser http://localhost:8000/features/ # replace 8000 with the port you specified
+  * ```$ ./manage.py runserver [port] # optionally specify a port, default is 8000```
+
+Usage
+-----
+Type the address in a browser **http://localhost:8000/features/** (then replace 8000 with the port you specified
+if you used a custom port)
+* Adding a Feature: Use the form to add new features
+* Editing a Feature: Click on the feature name to edit the feature
+* Deleting a Feature: Access http://localhost:8000/delete/feature_id/ (Todo: add trash icon with AJAX
+request to delete feature)
 
 Testing
 -------
