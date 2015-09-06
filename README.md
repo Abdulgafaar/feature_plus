@@ -47,5 +47,5 @@ You can execute the tests for this project by running
 
 Coverage
 --------
-Code coverage is available by running
-  * ```$ ./manage test_coverage```
+Code coverage is available (for ```app``` only) by running
+  * ```$ ./manage test_coverage app```
