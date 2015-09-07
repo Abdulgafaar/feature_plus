@@ -5,7 +5,7 @@ from unittest2 import TestCase
 from django.test import Client, RequestFactory
 from django.core.urlresolvers import reverse
 from ..models import Feature
-from ..views import add_edit_feature, list_features
+from ..views import add_edit_feature, list_features, delete_feature
 from ..factories import FeatureFactory
 
 
@@ -35,3 +35,20 @@ class FeatureViewsTestCase(TestCase):
         response = add_edit_feature(request, new_feature.id)
         self.assertTrue(Feature.objects.filter(title=new_feature.title).exists())
         self.assertEqual(302, response.status_code)
+
+    def test_we_can_delete_a_feature(self):
+        test_features = FeatureFactory.create_batch(3)
+        test_features[0].title = 'Feature 1'
+        test_features[1].title = 'Feature 2'
+        test_features[2].title = 'Feature 3'
+        test_features[0].save(), test_features[1].save(), test_features[2].save()
+        all_features = Feature.objects.all().values_list('pk', flat=True)
+        self.assertEqual(len(test_features), len(all_features))
+
+        request = self.client.delete(reverse('features:delete_feature', kwargs={'id': test_features[1].pk}))
+        response = delete_feature(request, id=test_features[1].pk)
+        self.assertEqual(302, response.status_code)
+        self.assertNotIn(test_features[1].pk, Feature.objects.all().values_list('pk', flat=True))
+
+        remaining_features = Feature.objects.all().values_list('pk', flat=True)
+        self.assertEqual(2, len(remaining_features))
