@@ -1,0 +1,20 @@
+# Custom CIrcleCI config
+machine:
+  environment:
+    DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+
+dependencies:
+  pre:
+    - pip install -r requirements/local.txt
+    - source feature_plus.env
+
+database:
+  pre:
+    - create database test_db_features
+    - connect test_db_features
+    - create role testuser with login createdb password 'pAssw0rd'
+    - python manage.py migrate
+
+test:
+  override:
+    - python manage.py test
