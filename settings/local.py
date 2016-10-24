@@ -7,6 +7,7 @@ INSTALLED_APPS += (
     'lettuce.django',
     'debug_toolbar',
     'django_coverage',
+    'django_extensions',
 )
 
 LETTUCE_APPS = (

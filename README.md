@@ -23,7 +23,7 @@ with **pip** and cloning this project into that environment
 * Installing requirements
   * ```$ cd feature_plus```
   * ```$ [sudo] pip install -r requirements/local.txt```
-* Exporting environment variables (the environment variables file will be emailed to you)
+* Exporting environment variables (update the sample **.env.sample** file provided)
   * ```$ source .env```
 * Setting up the Database via the postgres user (from the terminal, type)
   * ```$ psql -d postgres < db_init.sql```
