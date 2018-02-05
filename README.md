@@ -1,4 +1,4 @@
-FeaturePlus ...This is test on pull request...
+FeaturePlus 
 ============
 Simple CRUD application to add new features to an existing app.
 
@@ -19,7 +19,7 @@ with **pip** and cloning this project into that environment
   * ```$ virtualenv feature_plus```
   * ```$ cd feature_plus```
   * ```$ source bin/activate```
-  * ```$ git clone https://github.com/inspaya/feature_plus.git```
+  * ```$ git clone [Clone]( https://github.com/inspaya/feature_plus.git"click to clone")```
 * Installing requirements
   * ```$ cd feature_plus```
   * ```$ [sudo] pip install -r requirements/local.txt```
