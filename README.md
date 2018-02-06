@@ -23,7 +23,7 @@ with **pip** and cloning this project into that environment
 * Installing requirements
   * ```$ cd feature_plus```
   * ```$ [sudo] pip install -r requirements/local.txt```
-* Exporting environment variables (the environment variables file will be emailed to you)
+* Exporting environment variables (the environment variables file will be E-mailed to you)
   * ```$ source .env```
 * Setting up the Database via the postgres user (from the terminal, type)
   * ```$ psql -d postgres < db_init.sql```
@@ -37,7 +37,7 @@ Usage
 Type the address in a browser **http://localhost:8000/features/** (then replace 8000 with the port you specified
 if you used a custom port)
 * Adding a Feature: Use the form to add new features
-* Editing a Feature: Click on the feature name to edit the feature
+* Editing a Feature: Click on the feature's name to edit the feature
 * Deleting a Feature: Click on the Delete link beside each feature
 
 Testing
